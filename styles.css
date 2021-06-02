@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400&display=swap');
 
 :root{
-    --primary-color:#e6e6fa;
+    --primary-color:#60b0ba;
     --secondary-color: #e6a8d7;
     --dark-grey: #eeeef5;
     --dark-magenta: #8c5b97;
@@ -9,7 +9,7 @@
 }
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserat', sans-serif;
     margin: 0px;
 }
 
@@ -30,19 +30,30 @@ body{
 text-decoration: none;
 padding: 0.5rem 1rem;}
 
+
 /*look into BEM Naming convention*/
 
 .link-primary{
     background-color: var(--secondary-color);
     color: white;
-    border-radius: 00.5rem;
+    border-radius: 4px;
+}
+.link-primary:hover{
+    background-color: var(--dark-magenta);
 }
 
 .link-secondary{
     color: var(--primary-color);
-    border-radius: 0.5rem;
-    border: 1px solid var(--primary-color)
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    
 }
+.link-secondary:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
 
 /**Lists**/
 .list-non-bullet{
@@ -58,18 +69,49 @@ list-style: none;
     border-bottom-left-radius: 1rem;
 }
 
+
 .navigation .nav-pills{
     text-align: right;
     font-size: medium;
+   
 }
 .navigation .nav-brand{
-    font-weight: bold;
-    width: 120px;
-    background-color:#e6e6fa;
+    padding-top: 10px;
     font-size: 1.1rem;
 }
 .navigation .link {
     color: black;
+    position:relative;
+  z-index: 1;
+}
+
+.navigation .link:hover{
+    color: black;
+}
+
+.navigation .link::after{
+    display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: '.';
+  color: transparent;
+  background: var(--primary-color);
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.navigation .link:hover::after{
+    opacity: 0.4;
+  visibility: visible;
+  height: 100%;
 }
 .navigation .link-active{
     font-weight: bold;
@@ -90,15 +132,17 @@ text-align: center;
 }
 
 .about-me-section{
-    width: 500px 500px;
-    background-color: #e6e6fa;
+    margin: auto;
+ padding: 10px;
+ width: 50%;
+
 }
 
 .hero-heading{
-font-size: large;
-padding: 1rem;
+font-size: x-large;
+padding-top: 1rem;
 color: var(--dark-magenta);
-text-align: left;
+text-align: center;
 }
 
 /**SECTIONS **/
@@ -114,12 +158,23 @@ text-align: center;
     background-color: var(--off-white);
 }
 
+/*Blog */
+.article-heading{
+    font-size: 30px;
+    margin-bottom: 0.1000rem;
+}
+
+/* WORK*/
+.work-heading{
+    font-size: 30px;
+    margin-bottom: 0.1000rem;
+}
+
 /** footer **/
 
 .footer{
     padding: 2rem 1rem;
     text-align: center;
-    border-top-right-radius: 1rem;
 }
 
 .footer .link {
